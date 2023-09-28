@@ -1,0 +1,18 @@
+version: '3.3'
+services:
+  database:
+    container_name: aplicativos
+    image: postgres
+    restart: always
+    ports:
+      - "5433:5432"
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=database
+    volumes:
+      - pgdata:/data/postgres
+
+volumes:
+  pgdata:
+    driver: local
